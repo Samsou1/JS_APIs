@@ -6,8 +6,7 @@ const getForecast = ()=> {
     return response.json();
   })
   .then((response) => {
-    console.log(response);
-    buildForecast(response['data'])
+    buildForecast(response['data']);
   })
   .catch((error) => { 
     console.error(error); 
@@ -15,11 +14,11 @@ const getForecast = ()=> {
 };
 
 const buildForecast = (ary) => {
-  const today = new Date()
+  const today = new Date();
   for(let i = 0; i < 5; i ++){
     let date = new Date(24* i * 3600 * 1000 + today.getTime());
     let day = date.getDay();
-    showForecast(document.getElementById(`weather${i+1}`), days[day], ary[i * 24]['weather']['icon'],ary[i * 24]['temp'],ary[i * 24]['pop'])
+    showForecast(document.getElementById(`weather${i+1}`), days[day], ary[i * 24]['weather']['icon'],ary[i * 24]['temp'],ary[i * 24]['pop']);
   }
 }
 
